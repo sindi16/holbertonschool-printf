@@ -11,6 +11,7 @@ typedef struct specifier_t
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+int (*find_printfunctions(char format_char, specifier_t specifiers[]))(va_list);
 
 int print_char(va_list args);
 int print_int(va_list args);

@@ -35,3 +35,4 @@ int print_string(va_list args)
     return (i);
 
 }
+int print_int(va_list args);
