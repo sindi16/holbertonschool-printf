@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int ft_printf(const char *format, ...);
+int _printf(const char *format, ...);
 
 int print_char(char c);
 int print_integer(int num);
