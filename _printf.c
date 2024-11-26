@@ -13,7 +13,7 @@ int (*find_printfunctions(char format_char, specifier_t specifiers[]))(va_list)
 		{
 			return (specifiers[i].print);
 		}
-		i++
+		i++;
 	}
 	return (NULL);
 
