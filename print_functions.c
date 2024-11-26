@@ -1,38 +1,27 @@
 #include "main.h"
-#include <stdio.h>
-#include <sdarg.>
+#include <stdlib.h>
+#include <stdarg.h>
 /**
- * print_char - Prints a single character.
- * @args: List of arguments passed to _printf.
+ * handle_char - Handles the %c specifier in _printf
+ * @args: A va_list containing the argument to print
  *
- * Return: The number of characters printed (always 1 for a single character).
+ * Return: The number of characters printed (always 1 for a single char)
  */
-
-int print_char(va_list args)
+int handle_char(va_list args)
 {
-    char c;
-    c = va_arg(args, int);
-    return (_putchar(c));
+    char letter;
+    letter = va_arg(args, int);
+    _putchar(letter);
+    return (1);
 }
-/**
- * print_string - Prints a string.
- * @args: List of arguments passed to _printf.
- *
- * Return: The number of characters printed.
- */ 
-int print_string(va_list args)
+int handle_string(va_list args)
 {
-    char *s 
     unsigned int i;
-
+    char *s;
     s = va_arg(args, char *);
-
-    if(s == NULL)
-        s = "(nil)";
-    for (i = 0; s[i] != '\0' i++)
-    _putchar(s[i]);
-
+    if (s == NULL)
+        s = "(null)";
+    for (i = 0; s[i] != '\0'; i++)
+        _putchar(s[i]);
     return (i);
-
 }
-int print_int(va_list args);
