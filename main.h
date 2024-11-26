@@ -1,14 +1,19 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int _printf(const char *format, ...);
+#include <stdarg.h>
 
-int print_char(char c);
-int print_integer(int num);
-int print_unsigned(unsigned int num);
-int print_pointer(void *ptr);
-int print_float(double num);
-int handle_format_specifier(char specifier, va_list args);
-int print_string(const char *str);
+typedef struct specifier_t
+{
+	char *specifier;
+	int (*print)(va_list args);
+} specifier_t;
+
+int _printf(const char *format, ...);
+int _putchar(char c);
+
+int print_char(va_list args);
+int print_int(va_list args);
+int print_string(va_list args);
 
 #endif
