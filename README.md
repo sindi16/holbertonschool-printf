@@ -1,64 +1,74 @@
-# Custom `printf` Project
+# Custom Printf Function in C
 
-## Project Overview
+## Description
 
-This project implements a custom version of the `printf` function in C. It involves parsing a format string, handling different format specifiers, and printing corresponding outputs to the standard output. This custom `printf` mimics the behavior of the original `printf` function.
+In C language, `printf()` function is used to print formatted output to the standard output stdout (which is generally the console screen).  The printf function is a part of the C standard library <stdio.h> and it can allow formatting the output in numerous ways. We've built a custom version of it `_printf` for learning purposes and to gain a deeper understanding of how it works. It can print various data types, such as characters, strings, integers and decimals.
 
-## File Structure
+## Function Prototype
+The prototype for the custom _printf function is as follows:
+```c
+int _printf(const char *format, ...);
+```
 
-- **main.h**  
-  Header file containing the function prototypes for all the functions used in the project.
-  
-- **main.c**  
-  Contains the main function to test the logic of the custom `printf` implementation. This is where the function is called with different format specifiers to ensure correctness.
+## Return Value
+* `_printf()` returns the number of characters printed after successful execution.
+* If an error occurs, a negative value is returned.
 
-- **_printf.c**  
-  This is the core implementation of the custom `printf` function. It takes in a format string and handles different format specifiers like `%d`, `%s`, `%c`, and more, printing the results to the standard output.
+## Format Specifiers
 
-- **print_functions.c**  
-  Contains individual functions for printing different types of data, such as integers, strings, and characters. These functions are used by `_printf.c` to handle specific format specifiers.
+| Specifiers      | Description |
+| ----------- | ----------- |
+| %c  | Print single character |
+| %s  | Print string of characteres |
+| %d  | Print decimal numbers|
+| %i  | Print integers |
 
-## How It Works
 
-- The custom `_printf` function processes the format string and identifies each format specifier.
-- For each specifier, it calls the appropriate function from `print_functions.c` to handle the printing of data.
-- The project supports various format specifiers, and each is processed and printed accordingly.
+## Compilation
 
-## Team Collaboration
+To compile the code, use the following command:
 
-The project was developed collaboratively, with each member contributing to specific components:
+```bash
+gcc -Wall -Werror -Wextra -pedantic *.c -o printf
+```
+And then execute:
+```bash
+./printf
+```
 
-1. **Design & Logic**  
-   - The overall structure of `_printf` was planned together to ensure each team member understood the required logic.
-   
-2. **File Organization**  
-   - The header file `main.h` was shared among the team to ensure consistency in function declarations.
-   - `main.c` served as a test file where the logic was validated with various test cases.
 
-3. **Functionality Development**  
-   - Each member took responsibility for implementing specific print functions in `print_functions.c` (e.g., printing integers, characters, and strings).
-   
-4. **Testing & Debugging**  
-   - The team worked together on debugging and testing, using `main.c` to ensure that all edge cases and format specifiers were handled correctly.
+## Usage
+Here is an example usage:
+```c
+#include "main.h"
 
-## Key Features
+int main(void)
+{
+    char c = 'H';
+    _printf("The current %s is %d\n", "year", 2023);
+    _printf("This is a char : %c", c);
+    
+    return (0);
+}
 
-- Custom implementation of `printf`.
-- Support for standard format specifiers like `%d`, `%s`, `%c`, and more.
-- Flexible design allowing easy extension to support more format specifiers in the future.
+Output: The current year is 2023
+Output: This is a char : H
+```
 
-## Installation
+## What happens when
+When ``` _printf("hello %s\n", "world", 1, 2, 3, 4); ``` 
+is called, the function has no way to know that more arguments were passed, so it will just ignore them. The function will not fail. The user is responsible for calling the function the right way.
+## Files contained in this repository 
 
-To compile and run the project:
+| Name  | Information |
+| ------------- | ------------- |
+| man_3_printf  | 	Man page of the `_printf()` function.  |
+| main.h  | Header file with the data type struct, standard libraries and custom prototypes.  |
+| _printf.c  | Main printf function file. Calls other functions.  |
+| functions.c | Contains `char`, `string`, `decimal` and `integer` functions. |
+| get_functions.c | Function that check format and call another function it format match with character. |
+| _putchar.c | Custom putchar function. |
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/custom_printf.git
-
-2. Compile this code:
-**gcc -Wall -Wextra -Werror -pedantic *.c -o    
-    **printf**
-3. Run this code:
-    **./printf**
-
-* In this project, instead of using the standard library's built-in printf function, the goal is to create your own version that mimics its behavior. The implementation typically involves handling different format specifiers, such as %d, %s, %f, and others, to print integers, strings, floating-point numbers, and more.
+## Authors
+XHOANA GJOSHI
+SINDI BARDHI
